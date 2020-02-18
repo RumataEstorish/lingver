@@ -38,4 +38,7 @@
     <string name="ukrainian">Ukrainian</string>
     <string name="english">English</string>
     <string name="russian">Russian</string>
+
+    <string name="first_menu_item">First menu item</string>
+    <string name="second_menu_item">Second menu item</string>
 </resources>

@@ -30,6 +30,11 @@ class TestActivity1 : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.test_activity_1)
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment, FragmentOne())
+            commitAllowingStateLoss()
+        }
     }
 }

@@ -113,7 +113,7 @@ class Lingver private constructor(private val store: LocaleStore) {
         }
     }
 
-    @Suppress("DEPRECATION")
+
     private fun updateResources(context: Context, locale: Locale) {
         Locale.setDefault(locale)
 
@@ -123,12 +123,23 @@ class Lingver private constructor(private val store: LocaleStore) {
         if (current == locale) return
 
         val config = Configuration(res.configuration)
+
         when {
             isAtLeastSdkVersion(VERSION_CODES.N) -> setLocaleForApi24(config, locale)
             isAtLeastSdkVersion(VERSION_CODES.JELLY_BEAN_MR1) -> config.setLocale(locale)
-            else -> config.locale = locale
+            else -> {
+                @Suppress("DEPRECATION")
+                config.locale = locale
+            }
         }
-        res.updateConfiguration(config, res.displayMetrics)
+
+        if (isAtLeastSdkVersion(VERSION_CODES.JELLY_BEAN_MR1)){
+            res.updateConfiguration(config, res.displayMetrics)
+        }
+        else {
+            @Suppress("DEPRECATION")
+            res.updateConfiguration(config, res.displayMetrics)
+        }
     }
 
     @SuppressLint("NewApi")

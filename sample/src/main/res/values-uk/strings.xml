@@ -36,4 +36,7 @@
     <string name="ukrainian">Українська</string>
     <string name="english">Англійська</string>
     <string name="russian">Російська</string>
+
+    <string name="first_menu_item">Перший пункт меню</string>
+    <string name="second_menu_item">Другий пункт меню</string>
 </resources>
