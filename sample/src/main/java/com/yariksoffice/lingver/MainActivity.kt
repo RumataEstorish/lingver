@@ -29,6 +29,7 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -59,6 +60,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.settings).setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
+    }
+
+    override fun onMenuOpened(featureId: Int, menu: Menu): Boolean {
+        return super.onMenuOpened(featureId, menu)
     }
 
     override fun onStart() {
